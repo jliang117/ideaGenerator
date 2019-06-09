@@ -4,13 +4,13 @@ import InputHeader from "./components/InputHeader"
 import './App.css';
 import { textAlign } from '@material-ui/system';
 
-class App extends Component{
-  render(){
+class App extends Component {
+  render() {
     const centralDiv = {
       // display:""
-      justifyContent:"center", 
-      textAlign:"center",
-      boxSizing:"border-box",
+      justifyContent: "center",
+      textAlign: "center",
+      boxSizing: "border-box",
       position: "absolute",
       margin: "auto",
       top: "0",
@@ -23,11 +23,9 @@ class App extends Component{
 
     return (
       <div style={centralDiv}>
-        <InputHeader/>
-        <IdeaList/>
-        </div>
-        
-      
+        <InputHeader />
+        <IdeaList />
+      </div>
     )
   }
 }
