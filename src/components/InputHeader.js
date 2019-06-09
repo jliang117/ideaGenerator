@@ -33,11 +33,10 @@ const useStyles = makeStyles(theme => ({
 const InputHeader = () => {
   const classes = useStyles();
 
-  const [isDescriptionFilled, enableAdd] = useState(
-    false
-  );
-
+  const [isDescriptionFilled, enableAdd] = useState(false);
   const onDescriptionChange = event => enableAdd(event.target.value);
+
+  
 
   return (
     <form className={classes.container} noValidate autoComplete="off">
@@ -67,6 +66,7 @@ const InputHeader = () => {
         disabled = {!isDescriptionFilled}
         variant="contained"
         color="primary"
+        
         className={classes.button}>
         Add
       </Button>

@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import List from '@material-ui/core/List';
-
-import Idea from './Idea';
+import Typography from '@material-ui/core/Typography'
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+// import Idea from './Idea';
 
 
 const listStyles = {
@@ -10,13 +13,8 @@ const listStyles = {
 }
 
 class IdeaList extends Component {
-
     state = {
-        ideas: [
-            <Idea title="test" desc="testDesc" />,
-            <Idea title="This is my idea" desc="elevator pitch" />,
-            <Idea desc="Unmastered" />,
-        ],
+        ideas: [],
     }
 
     constructor() {
@@ -25,7 +23,8 @@ class IdeaList extends Component {
     }
 
     getIdeas = () => {
-        console.log(this.state.ideas)
+        this.state.ideas.push(<Idea desc="Unmastered" />)
+        this.state.ideas.push(<Idea title="This is my idea" desc="elevator pitch" author="rambo"/>,)
     }
 
     render() {
@@ -35,10 +34,16 @@ class IdeaList extends Component {
                     <div style={{listStyles}}>
                         <List component="nav" aria-label="Idea List">
                             {this.state.ideas.map(
-                                currIdea => (
-                                    <Idea idea={currIdea} />
-                                )
+                                currIdea => {
+                                    console.log(currIdea);
+                                    return <Idea 
+                                    title={currIdea.props.title} 
+                                    desc={currIdea.props.desc} 
+                                    author={currIdea.props.author}/>
+                                    
+                                }
                             )}
+                            
                         </List>
 
                     </div>
@@ -47,5 +52,16 @@ class IdeaList extends Component {
         )
     }
 }
+
+const Idea = ({title, desc, author}) => (
+    <ListItem>
+     <ListItemText>
+        <Typography component="p" gutterBottom>
+            <b>{title ? (title) : "Untitled"}</b> | {desc} | {author}
+        </Typography>
+        <Divider/>
+     </ListItemText>
+     </ListItem>
+);
 
 export default IdeaList;
