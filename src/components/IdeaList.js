@@ -11,55 +11,42 @@ const listStyles = {
     maxWidth: 1200,
 }
 
-class IdeaList extends Component {
-    state = {
-        ideas: [],
-    }
+const IdeaList = ({ ideaList }) => {
+    
+    return (
+        <div>
+            {ideaList && ideaList.length ? (
+                <div style={{ listStyles }}>
+                    <List aria-label="Idea List">
+                        {ideaList.map(currIdea => {
+                            console.log(currIdea);
+                            return <Idea
+                                title={currIdea.props.title}
+                                desc={currIdea.props.desc}
+                                author={currIdea.props.author} />
+                            }
+                        )}
 
-    constructor() {
-        super()
-        this.getIdeas()
-    }
+                    </List>
+                </div>
+            ) : 'Currently no ideas, submit one!'}
+        </div>
+    )
 
-    getIdeas = () => {
-        this.state.ideas.push(<Idea desc="Unmastered" />)
-        this.state.ideas.push(<Idea title="This is my idea" desc="elevator pitch" author="rambo" />)
-    }
-
-    render() {
-        return (
-            <div>
-                {this.state.ideas ? (
-                    <div style={{ listStyles }}>
-                        <List aria-label="Idea List">
-                            {this.state.ideas.map(
-                                currIdea => {
-                                    console.log(currIdea);
-                                    return <Idea
-                                        title={currIdea.props.title}
-                                        desc={currIdea.props.desc}
-                                        author={currIdea.props.author} />
-                                }
-                            )}
-
-                        </List>
-
-                    </div>
-                ) : "No ideas found"}
-            </div>
-        )
-    }
 }
 
 const Idea = ({ title, desc, author }) => (
     <ListItem>
         <ListItemText>
             <Typography component="p" gutterBottom>
-                <b>{title ? (title) : "Untitled"}</b> | {desc} | <i>{author ? ("By "+ author) : "Unknown"}</i>
+                <b>{title ? (title) : "Untitled"}</b> | {desc} | <i>{author ? ("By " + author) : "Unknown"}</i>
             </Typography>
             <Divider />
         </ListItemText>
     </ListItem>
 );
 
+export{
+    Idea
+}
 export default IdeaList;

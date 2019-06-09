@@ -1,11 +1,11 @@
 import React, { Component, useState } from 'react';
-import IdeaList from "./components/IdeaList";
+import IdeaList, {Idea} from "./components/IdeaList";
 import InputHeader from "./components/InputHeader"
 import './App.css';
 
 
 const initList = [
-  // <Idea title="test" desc ="desc" author="author"/>,
+  <Idea title="test" desc ="desc" author="author"/>,
 ]
 
 const centralDiv = {
@@ -28,7 +28,7 @@ const App = () => {
     return (
       <div style={centralDiv}>
         <InputHeader />
-        <IdeaList />
+        <IdeaList ideaList={list} />
       </div>
     )
 }
