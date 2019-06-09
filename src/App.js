@@ -1,25 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import IdeaList from "./components/IdeaList";
 import InputHeader from "./components/InputHeader"
 import './App.css';
-import { textAlign } from '@material-ui/system';
 
-class App extends Component {
-  render() {
-    const centralDiv = {
-      // display:""
-      justifyContent: "center",
-      textAlign: "center",
-      boxSizing: "border-box",
-      position: "absolute",
-      margin: "auto",
-      top: "0",
-      right: "0",
-      bottom: "300px",
-      left: "0",
-      maxWidth: "1000px",
-      height: "100px"
-    }
+
+const initList = [
+  // <Idea title="test" desc ="desc" author="author"/>,
+]
+
+const centralDiv = {
+  justifyContent: "center",
+  textAlign: "center",
+  boxSizing: "border-box",
+  position: "absolute",
+  margin: "auto",
+  top: "0",
+  right: "0",
+  bottom: "300px",
+  left: "0",
+  maxWidth: "1000px",
+  height: "100px"
+}
+
+const App = () => {
+  const [list,setList] = useState(initList)
 
     return (
       <div style={centralDiv}>
@@ -27,7 +31,6 @@ class App extends Component {
         <IdeaList />
       </div>
     )
-  }
 }
 
 export default App;

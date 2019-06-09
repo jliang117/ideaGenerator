@@ -31,7 +31,7 @@ class IdeaList extends Component {
             <div>
                 {this.state.ideas ? (
                     <div style={{ listStyles }}>
-                        <List component="nav" aria-label="Idea List">
+                        <List aria-label="Idea List">
                             {this.state.ideas.map(
                                 currIdea => {
                                     console.log(currIdea);
@@ -55,7 +55,7 @@ const Idea = ({ title, desc, author }) => (
     <ListItem>
         <ListItemText>
             <Typography component="p" gutterBottom>
-                <b>{title ? (title) : "Untitled"}</b> | {desc} | {author}
+                <b>{title ? (title) : "Untitled"}</b> | {desc} | <i>{author ? ("By "+ author) : "Unknown"}</i>
             </Typography>
             <Divider />
         </ListItemText>

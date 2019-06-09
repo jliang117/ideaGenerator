@@ -30,19 +30,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const InputHeader = () => {
+const InputHeader = ({name,desc,author,addIdea}) => {
   const classes = useStyles();
 
   const [isDescriptionFilled, enableAdd] = useState(false);
   const onDescriptionChange = event => enableAdd(event.target.value);
-
-  
 
   return (
     <form className={classes.container} noValidate autoComplete="off">
       <TextField
         id="idea-name"
         label="Idea Name"
+        value={name}
         className={classes.textField}
         margin="normal"
       />
@@ -50,6 +49,7 @@ const InputHeader = () => {
         required
         id="idea-desc"
         label="Description"
+        value={desc}
         onChange={onDescriptionChange}
         className={classes.textFieldLong}
 
@@ -58,6 +58,7 @@ const InputHeader = () => {
       <TextField
         id="idea-author"
         label="Author"
+        value={author}
         className={classes.textField}
         margin="normal"
       />
@@ -66,7 +67,7 @@ const InputHeader = () => {
         disabled = {!isDescriptionFilled}
         variant="contained"
         color="primary"
-        
+        onClick={addIdea}
         className={classes.button}>
         Add
       </Button>
