@@ -30,43 +30,49 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const InputHeader = ({name,desc,author,addIdea}) => {
+const InputHeader = ({name,desc,author,addIdea, handleChange}) => {
   const classes = useStyles();
 
   const [isDescriptionFilled, enableAdd] = useState(false);
   const onDescriptionChange = event => enableAdd(event.target.value);
 
+
+
   return (
     <form className={classes.container} noValidate autoComplete="off">
       <TextField
-        id="idea-name"
+        id="name"
         label="Idea Name"
         value={name}
         className={classes.textField}
         margin="normal"
+        onChange={handleChange}
       />
       <TextField
         required
-        id="idea-desc"
+        id="desc"
         label="Description"
         value={desc}
-        onChange={onDescriptionChange}
+        onInput={onDescriptionChange} //TODO can maybe consolidate?
+        onChange={handleChange}
         className={classes.textFieldLong}
 
         margin="normal"
       />
       <TextField
-        id="idea-author"
+        id="author"
         label="Author"
         value={author}
         className={classes.textField}
         margin="normal"
+        onChange={handleChange}
       />
 
       <Button
         disabled = {!isDescriptionFilled}
         variant="contained"
         color="primary"
+        onKeyDown={event=>{if (event.key ==='Enter'){return addIdea}}} //TODO fix this
         onClick={addIdea}
         className={classes.button}>
         Add

@@ -4,9 +4,6 @@ import InputHeader from "./components/InputHeader"
 import './App.css';
 
 
-const initList = [
-  <Idea title="test" desc ="desc" author="author"/>,
-]
 
 const centralDiv = {
   justifyContent: "center",
@@ -22,12 +19,44 @@ const centralDiv = {
   height: "100px"
 }
 
+const initList = [
+  <Idea title="test" desc ="desc" author="author"/>,
+]
+
+const initInput = {
+  name:"",
+  desc:"",
+  author:"",
+}
+
 const App = () => {
   const [list,setList] = useState(initList)
+  const [ideaHeader,setIdea] = useState(initInput)
+
+  const handleChange = event => {
+    setIdea({
+      ...ideaHeader,
+      [event.target.id]: event.target.value
+    })
+  }
+
+  const addIdea = event => {
+    if(ideaHeader.desc){
+      setList(list.concat(<Idea title={ideaHeader.name} 
+        desc={ideaHeader.desc} author={ideaHeader.author}/>))
+      setIdea(initInput)
+    }
+  }
 
     return (
       <div style={centralDiv}>
-        <InputHeader />
+        <InputHeader 
+        name={ideaHeader.name} 
+        desc={ideaHeader.desc} 
+        author={ideaHeader.author}
+        addIdea={addIdea}
+        handleChange={handleChange}
+        />
         <IdeaList ideaList={list} />
       </div>
     )
