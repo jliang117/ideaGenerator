@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -32,6 +32,11 @@ const useStyles = makeStyles(theme => ({
 
 const InputHeader = () => {
   const classes = useStyles();
+
+  const [isDescriptionFilled, enableAdd] = useState(
+    false
+  );
+  const onDescriptionChange = event => enableAdd(event.target.value);
   return (
     <form className={classes.container} noValidate autoComplete="off">
       <TextField
@@ -44,6 +49,8 @@ const InputHeader = () => {
         required
         id="idea-desc"
         label="Description"
+        
+        onChange={event => enableAdd(event.target.value)}
         className={classes.textFieldLong}
 
         margin="normal"
@@ -56,6 +63,7 @@ const InputHeader = () => {
       />
 
       <Button
+        disabled = {!isDescriptionFilled}
         variant="contained"
         color="primary"
         className={classes.button}>
