@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import List from '@material-ui/core/List';
 
 import Idea from './Idea';
-import { grey } from '@material-ui/core/colors';
 
 
 const listStyles = {
