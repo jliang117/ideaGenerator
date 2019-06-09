@@ -24,26 +24,25 @@ class IdeaList extends Component {
 
     getIdeas = () => {
         this.state.ideas.push(<Idea desc="Unmastered" />)
-        this.state.ideas.push(<Idea title="This is my idea" desc="elevator pitch" author="rambo"/>,)
+        this.state.ideas.push(<Idea title="This is my idea" desc="elevator pitch" author="rambo" />)
     }
 
     render() {
         return (
             <div>
                 {this.state.ideas ? (
-                    <div style={{listStyles}}>
+                    <div style={{ listStyles }}>
                         <List component="nav" aria-label="Idea List">
                             {this.state.ideas.map(
                                 currIdea => {
                                     console.log(currIdea);
-                                    return <Idea 
-                                    title={currIdea.props.title} 
-                                    desc={currIdea.props.desc} 
-                                    author={currIdea.props.author}/>
-                                    
+                                    return <Idea
+                                        title={currIdea.props.title}
+                                        desc={currIdea.props.desc}
+                                        author={currIdea.props.author} />
                                 }
                             )}
-                            
+
                         </List>
 
                     </div>
@@ -53,15 +52,15 @@ class IdeaList extends Component {
     }
 }
 
-const Idea = ({title, desc, author}) => (
+const Idea = ({ title, desc, author }) => (
     <ListItem>
-     <ListItemText>
-        <Typography component="p" gutterBottom>
-            <b>{title ? (title) : "Untitled"}</b> | {desc} | {author}
-        </Typography>
-        <Divider/>
-     </ListItemText>
-     </ListItem>
+        <ListItemText>
+            <Typography component="p" gutterBottom>
+                <b>{title ? (title) : "Untitled"}</b> | {desc} | {author}
+            </Typography>
+            <Divider />
+        </ListItemText>
+    </ListItem>
 );
 
 export default IdeaList;
