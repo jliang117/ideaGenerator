@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles(theme => ({
 
   container: {
-    width: "100%",
+    maxWidth:1000,
     alignContent: "center",
     boxSizing: "border-box",
 
@@ -14,12 +14,12 @@ const useStyles = makeStyles(theme => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: 150,
+    maxWidth: 150,
   },
   textFieldLong: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: 400,
+    minWidth: 300,
   },
   dense: {
     marginTop: 19,
@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function InputHeader() {
+const InputHeader = () => {
   const classes = useStyles();
   return (
     <form className={classes.container} noValidate autoComplete="off">

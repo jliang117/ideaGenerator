@@ -17,10 +17,10 @@ class App extends Component{
       right: "0",
       bottom: "300px",
       left: "0",
-      width: "1000px",
+      maxWidth: "1000px",
       height: "100px"
     }
-    
+
     return (
       <div style={centralDiv}>
         <InputHeader/>
