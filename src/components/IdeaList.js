@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
+import { display } from '@material-ui/system';
 
 
 const listStyles = {
@@ -37,11 +38,11 @@ const IdeaList = ({ ideaList }) => {
 
 const Idea = ({ title, desc, author }) => (
     <ListItem>
-        <ListItemText>
-            <Typography component="p" gutterBottom>
-                <b>{title ? (title) : "Untitled"}</b> | {desc} | <i>{author ? ("By " + author) : "Unknown"}</i>
-            </Typography>
-            <Divider />
+        <ListItemText secondary={author ? author : 'By unknown'}>
+        <Typography>
+        <b>{title ? (title) : 'Untitled'}</b> | {desc}
+        </Typography>
+        <Divider />
         </ListItemText>
     </ListItem>
 );
