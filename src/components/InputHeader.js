@@ -36,8 +36,13 @@ const InputHeader = ({name,desc,author,addIdea, handleChange}) => {
   const [isDescriptionFilled, enableAdd] = useState(false);
   const onDescriptionChange = event => enableAdd(event.target.value);
 
+  const handleEnterKey = event => {
+    if(event.key === 'Enter'){
+      addIdea()
+    }
+  }
   return (
-    <form className={classes.container} noValidate autoComplete="off">
+    <form onKeyDown={handleEnterKey} className={classes.container} noValidate autoComplete="off">
       <TextField
         id="name"
         label="Idea Name"
@@ -70,7 +75,6 @@ const InputHeader = ({name,desc,author,addIdea, handleChange}) => {
         disabled = {!isDescriptionFilled}
         variant="contained"
         color="primary"
-        onKeyDown={event=>{if (event.key ==='Enter'){return addIdea}}} //TODO fix this
         onClick={addIdea}
         className={classes.button}>
         Add
