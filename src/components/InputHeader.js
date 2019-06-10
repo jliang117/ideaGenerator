@@ -36,8 +36,6 @@ const InputHeader = ({name,desc,author,addIdea, handleChange}) => {
   const [isDescriptionFilled, enableAdd] = useState(false);
   const onDescriptionChange = event => enableAdd(event.target.value);
 
-
-
   return (
     <form className={classes.container} noValidate autoComplete="off">
       <TextField
