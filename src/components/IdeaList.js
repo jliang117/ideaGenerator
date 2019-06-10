@@ -30,7 +30,7 @@ const IdeaList = ({ ideaList }) => {
 
                     </List>
                 </div>
-            ) : 'Currently no ideas, submit one!'}
+            ) : 'Currently no ideas, be the first to submit one'}
         </div>
     )
 
