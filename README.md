@@ -13,8 +13,6 @@ Clone
 
 1. persist data so users see a single shared idea repo
 2. get it out into the world
-3. add press enter key to add new ideas
-4. beautify (logo, typography, colors?)
 5. searching
 6. filter
 7. deleting (only if you possess creation identifier)
