@@ -52,7 +52,7 @@ const App = () => {
 
     return (
       <div style={centralDiv}>
-        <Typography variant="h4">Add an idea so others can see!</Typography>
+        <Typography variant="h4">Share an idea so others can see!</Typography>
         <img src={logo}></img>
         <InputHeader 
         name={ideaHeader.name} 
