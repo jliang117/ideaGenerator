@@ -29,3 +29,11 @@ It's essentially a forum, with a single thread - what are some examples of forum
 How would the user see new content - manual refresh, autorefresh on a timer, a continuous polling that refreshes on change 
 
 
+#### Updates
+
+>It's essentially a forum, with a single thread - what are some examples of forum architecture that works well? 
+Looked into phpBB, they use the LAMP stack 
+
+Found a very high level post of different types of databases, wish there was a comprehensive, in depth, up to date list somewhere... https://arcentry.com/blog/choosing-a-database-in-2018/ 
+
+Seems like redis might fit, trying it out!
