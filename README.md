@@ -36,6 +36,6 @@ Looked into phpBB, they use the LAMP stack
 
 Found a very high level post of different types of databases, wish there was a comprehensive, in depth, up to date list somewhere... https://arcentry.com/blog/choosing-a-database-in-2018/ 
 
-Seems like redis might fit, trying it out!
+While redis is a caching layer, it looks like it has persistence and might fit, may try it out!
 
 	Currently branching on which redis node client to use - ioredis or the official redis...
